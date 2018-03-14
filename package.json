@@ -21,6 +21,8 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.9",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/history": "^4.6.2",
     "@types/jest": "^22.2.0",
     "@types/node": "^9.4.7",
@@ -29,8 +31,12 @@
     "@types/react-redux": "^5.0.15",
     "@types/react-router": "^4.0.22",
     "@types/react-router-redux": "^5.0.12",
+    "@types/react-test-renderer": "^16.0.1",
     "@types/redux-actions": "^2.2.4",
     "@types/webpack-env": "^1.13.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-test-renderer": "^16.2.0",
     "redux-devtools-extension": "^2.13.2",
     "typescript": "^2.7.2"
   }
