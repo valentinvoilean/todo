@@ -1,13 +1,14 @@
 import * as React from 'react';
 
-import './App.css';
-
+import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
+import './App.css';
+
 const logo = require('./logo.svg');
 
-class App extends React.Component {
+export class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -22,5 +23,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
