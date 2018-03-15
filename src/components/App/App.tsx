@@ -18,9 +18,9 @@ export class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ToDo App</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
           <List />
-        </p>
+        </div>
       </div>
     );
   }
