@@ -1,10 +1,14 @@
 import * as React from 'react';
+import { Panel } from 'react-bootstrap';
 
-import { AddItemInput } from '../AddItemInput';
+import { Item } from '../Item';
 
 export const List = () => (
-  <div>
-    <AddItemInput />
-    <ul>List Preview</ul>
-  </div>
+  <Panel.Body>
+    <ul className="todo__list">
+      <Item />
+      <Item />
+      <Item />
+    </ul>
+  </Panel.Body>
 );

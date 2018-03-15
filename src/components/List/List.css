@@ -1,0 +1,9 @@
+.todo__layout {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.todo__list {
+  list-style: none;
+  padding: 0;
+}

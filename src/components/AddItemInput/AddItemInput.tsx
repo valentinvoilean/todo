@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { FormGroup, FormControl } from 'react-bootstrap';
 
 export const AddItemInput = () => (
-    <div>
-        <input type="text" placeholder="Add new Item" />
-    </div>
+  <FormGroup>
+    <FormControl type="text" placeholder="New ToDo Item" />
+  </FormGroup>
 );
