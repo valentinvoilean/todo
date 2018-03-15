@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { List } from './List';
-import { AddItemInput } from '../AddItemInput';
 
 describe('<List />', () => {
   it('renders without crashing', () => {
     shallow(<List />);
   });
 
-  it('renders the <AddItemInput />`', () => {
+  it('renders the list`', () => {
     const wrapper = shallow(<List />);
-    expect(wrapper.find(AddItemInput).length).toBe(1);
+    expect(wrapper.find('ul').length).toBe(1);
   });
 });

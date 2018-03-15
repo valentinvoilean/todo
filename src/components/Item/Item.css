@@ -2,6 +2,10 @@
   text-align: left;
 }
 
+.todo__item--completed {
+  text-decoration: line-through;
+}
+
 .todo__itemContent {
   display: flex;
   justify-content: space-between;
