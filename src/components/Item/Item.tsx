@@ -4,35 +4,37 @@ import * as cx from 'classnames';
 
 import './Item.css';
 
+import { WithEventHandlersProps } from './withEventHandlers';
+
 export interface ToDoItem {
   id: number;
   text: string;
   isSelected: boolean;
 }
 
-export interface ItemProps {
+export interface ItemProps extends WithEventHandlersProps {
   todo: ToDoItem;
-  handleDelete?: () => void;
-  handleSelect?: () => void;
+  handleDelete: (id: number) => void;
+  handleSelect: (id: number) => void;
 }
 
 export const Item: React.SFC<ItemProps> = props => {
-  const { todo, handleDelete, handleSelect } = props;
+  const { todo, onClickDeleteButton, onCheckboxChange } = props;
   const classNames = cx({ 'todo__item--completed': todo && todo.isSelected });
 
   return (
     <li className="todo__item">
       <Well bsSize="small" className="todo__itemContent">
-        <Checkbox inline={true} className={classNames} onChange={handleSelect}>
+        <Checkbox inline={true} className={classNames} onChange={onCheckboxChange}>
           {todo && todo.text}
         </Checkbox>
-        <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={onClickDeleteButton}>Delete</Button>
       </Well>
     </li>
   );
 };
 
 Item.defaultProps = {
-  handleDelete() {},
-  handleSelect() {}
+  onCheckboxChange() {},
+  onClickDeleteButton() {}
 };
