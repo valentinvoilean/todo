@@ -6,14 +6,10 @@ import './Item.css';
 
 import { WithEventHandlersProps } from './withEventHandlers';
 
-export interface ToDoItem {
-  id: number;
-  text: string;
-  isSelected: boolean;
-}
+import { ToDoItemState } from '../../ducks/toDo';
 
 export interface ItemProps extends WithEventHandlersProps {
-  todo: ToDoItem;
+  todo: ToDoItemState;
   handleDelete: (id: number) => void;
   handleSelect: (id: number) => void;
 }
