@@ -5,36 +5,46 @@ import { Checkbox, Button } from 'react-bootstrap';
 
 describe('<List />', () => {
   it('renders without crashing', () => {
-    shallow(<Item label="test" />);
+    const props = {todo: { id: 1, text: 'test', isSelected: false }};
+    shallow(<Item {...props} />);
   });
 
   describe('Checkbox', () => {
     it('renders without crashing`', () => {
-      const wrapper = shallow(<Item label="test" />);
+      const props = {todo: { id: 1, text: 'test', isSelected: false }};
+      const wrapper = shallow(<Item {...props} />);
       expect(wrapper.find(Checkbox)).toHaveLength(1);
     });
 
     it('displays the label cut if the isDisabled option is true', () => {
-      const wrapper = shallow(<Item label="test" isDisabled={true} />);
+      const props = {todo: { id: 1, text: 'test', isSelected: true }};
+      const wrapper = shallow(<Item {...props} />);
       expect(wrapper.find(Checkbox).props().className === 'todo__item--completed').toBeTruthy();
 
-      const wrapper2 = shallow(<Item label="test" isDisabled={false} />);
+      const props2 = {todo: { id: 1, text: 'test', isSelected: false }};
+      const wrapper2 = shallow(<Item {...props2} />);
       expect(wrapper2.find(Checkbox).props().className === 'todo__item--completed').toBeFalsy();
     });
   });
 
   describe('Delete button', () => {
     it('renders without crashing', () => {
-      const wrapper = shallow(<Item label="test" />);
+      const props = {todo: { id: 1, text: 'test', isSelected: false }};
+      const wrapper = shallow(<Item {...props} />);
       expect(wrapper.find(Button)).toHaveLength(1);
     });
 
     it('calls the handleDelete fuction once it\'s clicked', () => {
-      const handleDelete = jest.fn();
-      const wrapper = shallow(<Item label="test" handleDelete={handleDelete} />);
+      const props = {
+        todo: { id: 1, text: 'test', isSelected: false },
+        handleDelete: jest.fn()
+
+      };
+
+      const wrapper = shallow(<Item {...props} />);
       wrapper.find(Button).simulate('click');
 
-      expect(handleDelete).toHaveBeenCalled();
+      expect(props.handleDelete).toHaveBeenCalled();
     });
 
   });

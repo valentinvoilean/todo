@@ -4,22 +4,27 @@ import * as cx from 'classnames';
 
 import './Item.css';
 
+export interface ToDoItem {
+  id: number;
+  text: string;
+  isSelected: boolean;
+}
+
 export interface ItemProps {
-  label: string;
-  isDisabled?: boolean;
+  todo: ToDoItem;
   handleDelete?: () => void;
   handleSelect?: () => void;
 }
 
 export const Item: React.SFC<ItemProps> = props => {
-  const { label, isDisabled, handleDelete, handleSelect } = props;
-  const classNames = cx({ 'todo__item--completed': isDisabled });
+  const { todo, handleDelete, handleSelect } = props;
+  const classNames = cx({ 'todo__item--completed': todo && todo.isSelected });
 
   return (
     <li className="todo__item">
       <Well bsSize="small" className="todo__itemContent">
-        <Checkbox inline={true} className={classNames} onClick={handleSelect}>
-          {label}
+        <Checkbox inline={true} className={classNames} onChange={handleSelect}>
+          {todo && todo.text}
         </Checkbox>
         <Button onClick={handleDelete}>Delete</Button>
       </Well>
@@ -28,7 +33,6 @@ export const Item: React.SFC<ItemProps> = props => {
 };
 
 Item.defaultProps = {
-  isDisabled: false,
   handleDelete() {},
   handleSelect() {}
 };

@@ -3,12 +3,14 @@ import { Panel } from 'react-bootstrap';
 
 import { Item } from '../Item';
 
+const props = {todo: { id: 1, text: 'test', isSelected: false }}; // TODO replace with redux
+
 export const List = () => (
   <Panel.Body>
     <ul className="todo__list">
-      <Item label="test" />
-      <Item label="test" />
-      <Item label="test" />
+      <Item {...props} />
+      <Item {...props} />
+      <Item {...props} />
     </ul>
   </Panel.Body>
 );
