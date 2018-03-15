@@ -16,10 +16,10 @@ describe('<List />', () => {
 
     it('displays the label cut if the isDisabled option is true', () => {
       const wrapper = shallow(<Item label="test" isDisabled={true} />);
-      expect(wrapper.find('.todo__item--completed')).toHaveLength(1);
+      expect(wrapper.find(Checkbox).props().className === 'todo__item--completed').toBeTruthy();
 
       const wrapper2 = shallow(<Item label="test" isDisabled={false} />);
-      expect(wrapper2.find('.todo__item--completed')).toHaveLength(0);
+      expect(wrapper2.find(Checkbox).props().className === 'todo__item--completed').toBeFalsy();
     });
   });
 
