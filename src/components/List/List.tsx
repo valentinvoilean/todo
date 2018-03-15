@@ -6,9 +6,9 @@ import { Item } from '../Item';
 export const List = () => (
   <Panel.Body>
     <ul className="todo__list">
-      <Item />
-      <Item />
-      <Item />
+      <Item label="test" />
+      <Item label="test" />
+      <Item label="test" />
     </ul>
   </Panel.Body>
 );
