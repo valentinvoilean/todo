@@ -1,8 +1,24 @@
 import * as React from 'react';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { Form, FormGroup, FormControl } from 'react-bootstrap';
 
-export const AddItemInput = () => (
-  <FormGroup>
-    <FormControl type="text" placeholder="New ToDo Item" />
-  </FormGroup>
+export interface AddItemInputProps {
+  addTodo: (text: string) => any;
+  createTodo: () => any;
+  updateText: (text?: string) => any;
+  text: string;
+}
+
+export const AddItemInput: React.SFC<AddItemInputProps> = ({ createTodo, updateText, text }) => (
+  <Form onSubmit={createTodo}>
+    <FormGroup>
+      <FormControl
+        type="text"
+        placeholder="New ToDo Item"
+        value={text}
+        onChange={(e: any) => {
+          updateText(e.target.value);
+        }}
+      />
+    </FormGroup>
+  </Form>
 );
