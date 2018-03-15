@@ -3,12 +3,18 @@ import { shallow } from 'enzyme';
 import { List } from './List';
 
 describe('<List />', () => {
+  const props = {
+    todos: [],
+    handleDelete() {},
+    handleSelect() {}
+  };
+
   it('renders without crashing', () => {
-    shallow(<List />);
+    shallow(<List {...props} />);
   });
 
   it('renders the list`', () => {
-    const wrapper = shallow(<List />);
+    const wrapper = shallow(<List {...props} />);
     expect(wrapper.find('ul').length).toBe(1);
   });
 });

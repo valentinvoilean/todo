@@ -2,21 +2,25 @@ import * as React from 'react';
 import { Panel } from 'react-bootstrap';
 
 import { Item } from '../Item';
+import { ToDoItemState } from '../../ducks/toDo';
 
-const props = {
-  todo: { id: 1, text: 'test', isSelected: false },
-  handleDelete() {},
-  handleSelect() {},
-  onCheckboxChange() {},
-  onClickDeleteButton() {}
-}; // TODO replace with redux
+export interface ListProps {
+  todos: ToDoItemState[];
+  handleDelete: (id: number) => void;
+  handleSelect: (id: number) => void;
+}
 
-export const List = () => (
+export const List: React.SFC<ListProps> = ({ todos, handleDelete, handleSelect }) => (
   <Panel.Body>
     <ul className="todo__list">
-      <Item {...props} />
-      <Item {...props} />
-      <Item {...props} />
+      {todos.map((todo, index) => (
+        <Item
+          key={`todo-${index}`}
+          todo={todo}
+          handleDelete={handleDelete}
+          handleSelect={handleSelect}
+        />
+      ))}
     </ul>
   </Panel.Body>
 );

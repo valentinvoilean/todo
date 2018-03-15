@@ -4,12 +4,12 @@ import * as cx from 'classnames';
 
 import './Item.css';
 
-import { WithEventHandlersProps } from './withEventHandlers';
-
 import { ToDoItemState } from '../../ducks/toDo';
 
-export interface ItemProps extends WithEventHandlersProps {
+export interface ItemProps {
   todo: ToDoItemState;
+  onCheckboxChange: () => void;
+  onClickDeleteButton: () => void;
   handleDelete: (id: number) => void;
   handleSelect: (id: number) => void;
 }
@@ -28,9 +28,4 @@ export const Item: React.SFC<ItemProps> = props => {
       </Well>
     </li>
   );
-};
-
-Item.defaultProps = {
-  onCheckboxChange() {},
-  onClickDeleteButton() {}
 };
