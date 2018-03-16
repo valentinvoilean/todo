@@ -6,10 +6,10 @@ import './Item.css';
 
 import { ToDoItemState } from '../../ducks/toDo';
 
-export interface ItemProps {
+import { ItemWithEventHandlers } from './withEventHandlers';
+
+export interface ItemProps extends ItemWithEventHandlers {
   todo: ToDoItemState;
-  onCheckboxChange: () => void;
-  onClickDeleteButton: () => void;
   handleDelete: (id: number) => void;
   handleSelect: (id: number) => void;
 }

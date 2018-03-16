@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { mapProps } from 'recompose';
 
 import { ListProps } from './List';
 import { ToDoItemState } from '../../ducks/toDo';
@@ -16,11 +16,7 @@ const filterTodos = (todos: ToDoItemState[], pathname: string) => {
   }
 };
 
-export const withFilteredTodos = (WrappedComponent: any) => (props: ListProps) => {
-  const { pathname, todos } = props;
-  const filteredTodos: ToDoItemState[] = filterTodos(todos, pathname);
-
-  return (
-    <WrappedComponent {...props} filteredTodos={filteredTodos} />
-  );
-};
+export const withFilteredTodos = mapProps(({ pathname, todos, ...rest }: ListProps) => ({
+  filteredTodos: filterTodos(todos, pathname),
+  ...rest
+}));
