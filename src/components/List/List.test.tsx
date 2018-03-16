@@ -5,8 +5,10 @@ import { List } from './List';
 describe('<List />', () => {
   const props = {
     todos: [],
+    filteredTodos: [],
     handleDelete() {},
-    handleSelect() {}
+    handleSelect() {},
+    pathname: '/'
   };
 
   it('renders without crashing', () => {
