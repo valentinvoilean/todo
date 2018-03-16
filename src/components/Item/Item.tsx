@@ -21,7 +21,12 @@ export const Item: React.SFC<ItemProps> = props => {
   return (
     <li className="todo__item">
       <Well bsSize="small" className="todo__itemContent">
-        <Checkbox inline={true} className={classNames} onChange={onCheckboxChange}>
+        <Checkbox
+          inline={true}
+          className={classNames}
+          onChange={onCheckboxChange}
+          checked={todo && todo.isSelected}
+        >
           {todo && todo.text}
         </Checkbox>
         <Button onClick={onClickDeleteButton}>Delete</Button>
