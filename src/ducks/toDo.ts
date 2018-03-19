@@ -1,7 +1,7 @@
 export interface ToDoItemState {
-  id: number;
-  text: string;
-  isSelected: boolean;
+  readonly id: number;
+  readonly text: string;
+  readonly isSelected: boolean;
 }
 
 export const initialState: ToDoItemState[] = [];

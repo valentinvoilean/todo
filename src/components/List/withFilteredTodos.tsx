@@ -1,9 +1,13 @@
 import { mapProps } from 'recompose';
 
-import { ListProps } from './List';
 import { ToDoItemState } from '../../ducks/toDo';
 
-const filterTodos = (todos: ToDoItemState[], pathname: string) => {
+export interface FilteredTodosProps {
+  pathname: string;
+  todos: ToDoItemState[];
+}
+
+const filterTodos = ({ todos, pathname }: FilteredTodosProps) => {
   switch (pathname) {
     case '/active':
       return todos.filter(todo => todo.isSelected === false);
@@ -16,7 +20,7 @@ const filterTodos = (todos: ToDoItemState[], pathname: string) => {
   }
 };
 
-export const withFilteredTodos = mapProps(({ pathname, todos, ...rest }: ListProps) => ({
-  filteredTodos: filterTodos(todos, pathname),
+export const withFilteredTodos = mapProps(({ pathname, todos, ...rest }: FilteredTodosProps) => ({
+  filteredTodos: filterTodos({ todos, pathname }),
   ...rest
 }));

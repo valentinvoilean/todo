@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import { TodoActions } from '../../ducks/toDo';
 
-const mapStateToProps = (state: any) => ({
+import { RootState } from '../../store/state';
+
+const mapStateToProps = (state: RootState) => ({
   todos: state.todos,
-  pathname: state.router.location.pathname
+  pathname: state.router.location && state.router.location.pathname
 });
 
 const mapDispatchToProps = {

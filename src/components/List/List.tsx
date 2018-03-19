@@ -5,14 +5,12 @@ import { Item } from '../Item';
 import { ToDoItemState } from '../../ducks/toDo';
 
 export interface ListProps {
-  todos: ToDoItemState[];
   filteredTodos: ToDoItemState[];
   handleDelete: (id: number) => void;
   handleSelect: (id: number) => void;
-  pathname: string;
 }
 
-export const List: React.SFC<ListProps> = ({ filteredTodos, handleDelete, handleSelect, pathname }) => {
+export const List: React.SFC<ListProps> = ({ filteredTodos, handleDelete, handleSelect }) => {
   return (
     <Panel.Body>
       <ul className="todo__list">
