@@ -2,11 +2,11 @@ import * as React from 'react';
 import { AddItemInput } from '../AddItemInput';
 import { Panel } from 'react-bootstrap';
 
-export const withHeader = (WrappedComponent: any) => (props: any) => [
-  (
-    <Panel.Heading key="todo-heading">
+export const withHeader = (WrappedComponent: any) => (props: any) => (
+  <>
+    <Panel.Heading>
       <AddItemInput />
     </Panel.Heading>
-  ),
-  <WrappedComponent key="todo-body" {...props} />
-];
+    <WrappedComponent {...props} />
+  </>
+);
