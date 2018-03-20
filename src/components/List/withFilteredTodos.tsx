@@ -13,8 +13,6 @@ const filterTodos = ({ todos, pathname }: FilteredTodosProps) => {
       return todos.filter(todo => todo.isSelected === false);
     case '/completed':
       return todos.filter(todo => todo.isSelected === true);
-    case '/all':
-    case '/':
     default:
       return todos;
   }
